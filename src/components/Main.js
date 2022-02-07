@@ -34,7 +34,7 @@ const Main = () => {
   return (
     <>
     <section className="text-gray-400 bg-gray-900 body-font" style={{minHeight:"100vh"}}>
-  <div className="container px-5 py-24 mx-auto">
+  <div className="container px-5 py-8 mx-auto">
     <div className="flex flex-wrap -m-4">
       {articles.map((element, index) => {
         return (<Card
