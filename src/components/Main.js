@@ -23,7 +23,6 @@ const Main = () => {
   const [value, setvalue] = useState("");
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
-  const [defultquerry, setdefultquerry] = useState("top,tech,crypto");
   const [progress, setprogress] = useState(0);
   const [not, setnot] = useState(false);
   const [totalresult, settotalresult] = useState(0);
@@ -91,9 +90,10 @@ const Main = () => {
   useEffect(() => {
     onbeforeunload();
     updatenews();
+    // eslint-disable-next-line
   }, [data, Pagedata]);
 
-  console.log(articlesdata);
+
   return (
     <>
       <LoadingBar height={2} color="#4F46E5" progress={progress} />
@@ -177,7 +177,7 @@ const Main = () => {
               >
                 <button
                   onClick={pageminus}
-                  disabled={Pagedata == 1}
+                  disabled={Pagedata === 1}
                   className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
                 >
                   {"Previous " + (Pagedata - 1)}
@@ -185,7 +185,7 @@ const Main = () => {
 
                 <button
                   onClick={pageplus}
-                  disabled={Pagedata == totalresult}
+                  disabled={Pagedata === totalresult}
                   className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
                 >
                   {"Next Page " + (Pagedata + 1)}

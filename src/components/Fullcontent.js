@@ -1,29 +1,30 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { useSelector } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
-import { useHistory } from "react-router-dom";
+
 const Fullcontent = (props) => {
   const history = createBrowserHistory();
   const { id } = useParams();
-  const data = useSelector((state) => state.theme.color);
+
 
   const articlesdata = useSelector((state) => state.default.def);
 
   const [articles, setArticles] = useState([]);
-  const [page, setpage] = useState(1);
-  const [TotalResults, setTotalResults] = useState(0);
+
+
   const [progress, setprogress] = useState(0);
-  console.log(articles);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setArticles(articlesdata[id]);
+    // eslint-disable-next-line
   }, [articlesdata]);
 
   // this is for location push we use only one time axios if we refresh page full content page throw eeror so if i refresh tehy will redirect me on home page
-  if (articles == undefined) {
+  if (articles === undefined) {
     history.push("/");
     window.location.reload();
   }

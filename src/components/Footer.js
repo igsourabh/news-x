@@ -17,7 +17,8 @@ const Footer = () => {
               href="https://twitter.com/SourabhVaish"
               className="text-gray-500 ml-1"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
+              
             >
               @igsourabh
             </a>
@@ -25,6 +26,7 @@ const Footer = () => {
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a
               target="_blank"
+              rel="noreferrer"
               className="text-gray-400"
               href="https://www.facebook.com/hacker.vaish"
             >
@@ -41,6 +43,7 @@ const Footer = () => {
             </a>
             <a
               target="_blank"
+              rel="noreferrer"
               className="ml-3 text-gray-400"
               href="https://twitter.com/SourabhVaish"
             >
@@ -57,6 +60,7 @@ const Footer = () => {
             </a>
             <a
               target="_blank"
+              rel="noreferrer"
               className="ml-3 text-gray-400"
               href="https://www.instagram.com/igsourabh/"
             >
@@ -75,6 +79,7 @@ const Footer = () => {
             </a>
             <a
               target="_blank"
+              rel="noreferrer"
               className="ml-3 text-gray-400"
               href="https://www.linkedin.com/in/sourabhvaish/"
             >
