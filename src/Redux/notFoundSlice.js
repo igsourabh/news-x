@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const searchnotfound = {
-  value: "top",
+  value: "tech",
 }
 
 export const notfoundSlice = createSlice({

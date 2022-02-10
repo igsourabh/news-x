@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { changeTextColor } from "../Redux/searchSlice";
-import "../Searchbar.css"
+import "../Searchbar.css";
 import Card from "./Card";
 import { changesearch } from "../Redux/defaultSlice";
 import { useSelector } from "react-redux";
-
 import { useDispatch } from "react-redux";
 import LoadingBar from "react-top-loading-bar";
 
@@ -18,9 +17,10 @@ import Spinner from "./Spinner";
 const Main = () => {
   const data = useSelector((state) => state.theme.color);
   const articlesdata = useSelector((state) => state.default.def);
-const querr=useSelector((state)=>state.notf.value)
+  const querr = useSelector((state) => state.notf.value);
   const Pagedata = useSelector((state) => state.page.value);
 
+  const [value, setvalue] = useState("");
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const [defultquerry, setdefultquerry] = useState("top,tech,crypto");
@@ -28,10 +28,11 @@ const querr=useSelector((state)=>state.notf.value)
   const [not, setnot] = useState(false);
   const [totalresult, settotalresult] = useState(0);
   const updatenews = async () => {
-    
     setloading(true);
-   
-    await axios.get(`https://api.newscatcherapi.com/v2/search?q=${querr}${data}&lang=en&sort_by=relevancy&countries=in&page=${Pagedata}&page_size=25`,
+
+    await axios
+      .get(
+        `https://api.newscatcherapi.com/v2/search?q=${querr}${data}&lang=en&sort_by=relevancy&countries=in&page=${Pagedata}&page_size=24`,
         {
           headers: {
             "x-api-key": "L7L-gf34K5jk8SUF3uTLykk634GfWVeCUoJS_fSPhII",
@@ -59,7 +60,6 @@ const querr=useSelector((state)=>state.notf.value)
         setprogress(100);
       });
   };
-  const [value, setvalue] = useState("");
 
   // for search bar handel change
   const handelchange = (e) => {
@@ -69,30 +69,27 @@ const querr=useSelector((state)=>state.notf.value)
 
   const handelclick = () => {
     dispatch(changeTextColor(value));
-    dispatch(incrementByAmount(1))
-    dispatch(notfound(""))
+    dispatch(incrementByAmount(1));
+    dispatch(notfound(""));
   };
 
   // for next page
 
   const pageplus = () => {
     dispatch(increment());
-  
-
   };
   // for previous page
 
   const pageminus = () => {
     dispatch(decrement());
-    
   };
 
   // for window.scroll
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
+  };
   useEffect(() => {
-    onbeforeunload()
+    onbeforeunload();
     updatenews();
   }, [data, Pagedata]);
 
@@ -101,13 +98,17 @@ const querr=useSelector((state)=>state.notf.value)
     <>
       <LoadingBar height={2} color="#4F46E5" progress={progress} />
       {loading && (
-         <div
-         className=" bg-gray-900 "
-         style={{ height: "80vh",display:"flex",justifyContent:"center",alignItems:"center" }}
-       >
-
-         <Spinner/>
-       </div>
+        <div
+          className=" bg-gray-900 "
+          style={{
+            height: "80vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Spinner />
+        </div>
       )}
 
       {!loading && (
@@ -126,11 +127,11 @@ const querr=useSelector((state)=>state.notf.value)
           <div className="container px-5 py-8 mx-auto">
             {/* Searcg Bar  */}
             <div
-            id='searchbar'
+              id="searchbar"
               className="container"
               style={{
                 display: "flex",
-                
+
                 margin: "0 auto 0 auto",
               }}
             >
@@ -147,7 +148,7 @@ const querr=useSelector((state)=>state.notf.value)
                 onClick={handelclick}
                 className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
               >
-                Button
+                Search
               </button>
             </div>
             <div className="flex flex-wrap -m-4 my-5">
@@ -165,31 +166,32 @@ const querr=useSelector((state)=>state.notf.value)
                 );
               })}
             </div>
-           {not && (<div
-              className=""
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "10px",
-              }}
-            >
-              <button
-                onClick={pageminus}
-                disabled={Pagedata == 1}
-                className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
+            {not && (
+              <div
+                className=""
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: "10px",
+                }}
               >
-                {"Previous "+(Pagedata-1)}
-              </button>
+                <button
+                  onClick={pageminus}
+                  disabled={Pagedata == 1}
+                  className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
+                >
+                  {"Previous " + (Pagedata - 1)}
+                </button>
 
-              <button
-                onClick={pageplus}
-                disabled={Pagedata == totalresult}
-                className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
-              >
-                {"Next Page "+(Pagedata+1)}
-           
-              </button>
-            </div>)}
+                <button
+                  onClick={pageplus}
+                  disabled={Pagedata == totalresult}
+                  className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-2"
+                >
+                  {"Next Page " + (Pagedata + 1)}
+                </button>
+              </div>
+            )}
           </div>
         </section>
       )}
