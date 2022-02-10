@@ -109,7 +109,7 @@ const Contact = () => {
             <p className="leading-relaxed mb-5">Give your Feed back</p>
             <form method="POST">
               <div className="relative mb-4">
-                <label for="name" className="leading-7 text-sm text-gray-400">
+                <label htmlFor="name" className="leading-7 text-sm text-gray-400">
                   Name
                 </label>
                 <input
@@ -122,7 +122,7 @@ const Contact = () => {
                 />
               </div>
               <div className="relative mb-4">
-                <label for="email" className="leading-7 text-sm text-gray-400">
+                <label htmlFor="email" className="leading-7 text-sm text-gray-400">
                   Email
                 </label>
                 <input
@@ -137,7 +137,7 @@ const Contact = () => {
               </div>
               <div className="relative mb-4">
                 <label
-                  for="message"
+                  htmlFor="message"
                   className="leading-7 text-sm text-gray-400"
                 >
                   Message
@@ -155,7 +155,7 @@ const Contact = () => {
                 onClick={formSubmit}
                 className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               >
-                Button
+                Submit
               </button>
             </form>
           </div>
