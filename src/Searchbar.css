@@ -1,0 +1,13 @@
+#searchbar { 
+    width: 40%;
+}
+
+@media (max-width: 2000px) {
+    #searchbar { width: 40% }
+}
+@media (max-width: 900px) {
+    #searchbar { width: 60% }
+}
+@media (max-width: 600px) {
+    #searchbar { width: 90% }
+}

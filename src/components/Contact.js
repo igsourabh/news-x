@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import LoadingBar from "react-top-loading-bar";
 
 const Contact = () => {
-    const [progress, setprogress] = useState(10);
+    const [progress, setprogress] = useState(0);
 
    
     
@@ -56,8 +57,21 @@ const Contact = () => {
         }, 1500);
       }
     };
+    useEffect(() => {
+      setprogress(10);
+      setprogress(25);
+  
+      setprogress(38);
+      setprogress(55);
+  
+      setprogress(70);
+      setprogress(80);
+      setprogress(100);
+    }, []);
   return (
     <>
+    <LoadingBar height={2} color="#4F46E5" progress={progress}/>
+
       <section class="text-gray-400 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
           <div class="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
@@ -91,7 +105,7 @@ const Contact = () => {
                 <h2 class="title-font font-semibold text-white tracking-widest text-xs mt-4">
                   PHONE
                 </h2>
-                <p class="leading-relaxed">123-456-7890</p>
+                <p class="leading-relaxed">+91 701-587-8431</p>
               </div>
             </div>
           </div>

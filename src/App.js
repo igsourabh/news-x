@@ -6,6 +6,8 @@ import Contact from "./components/Contact";
 import Fullcontent from "./components/Fullcontent";
 import Footer from "./components/Footer";
 function App() {
+  let apiKEY = process.env.API_KEY
+
   return (
     <>
       <Router>

@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from './searchSlice'
 import defReducer from './defaultSlice'
-import fullReducer from './fullcontentSlice'
+import pagereducer from './pageSlice'
+import notfoundreducer from './notFoundSlice'
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     default: defReducer,
-    fullred: fullReducer
+    page: pagereducer,
+    notf: notfoundreducer,
   },
 })
