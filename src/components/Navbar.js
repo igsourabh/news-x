@@ -9,7 +9,7 @@ const Navbar = () => {
             className="flex title-font font-medium items-center text-white mb-4 md:mb-0"
             to="/"
           >
-            <span className="ml-3 text-xl">News </span>
+            <span className="ml-3 text-xl">News-X </span>
           </Link>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
             <Link className="mr-5 hover:text-white" to="/">

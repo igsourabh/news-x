@@ -19,7 +19,7 @@ const Main = () => {
   const articlesdata = useSelector((state) => state.default.def);
   const querr = useSelector((state) => state.notf.value);
   const Pagedata = useSelector((state) => state.page.value);
-
+  const apikey = "L7L-gf34K5jk8SUF3uTLykk634GfWVeCUoJS_fSPhII";
   const [value, setvalue] = useState("");
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Main = () => {
         `https://api.newscatcherapi.com/v2/search?q=${querr}${data}&lang=en&sort_by=relevancy&countries=in&page=${Pagedata}&page_size=24`,
         {
           headers: {
-            "x-api-key": "L7L-gf34K5jk8SUF3uTLykk634GfWVeCUoJS_fSPhII",
+            "x-api-key": `${apikey}`,
           },
         }
       )
