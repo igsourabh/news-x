@@ -11,7 +11,7 @@ const Contact = () => {
 
     message: "",
   });
-  const [alert, setalert] = useState(false);
+
   let name, value;
   const handelChange = (element) => {
     name = element.target.name;
@@ -48,12 +48,7 @@ const Contact = () => {
           message: "",
         });
       }
-    } else {
-      setalert(true);
-      setTimeout(() => {
-        setalert(false);
-      }, 1500);
-    }
+    } 
   };
   useEffect(() => {
     setprogress(10);
