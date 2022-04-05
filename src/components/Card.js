@@ -7,25 +7,25 @@ const Card = (props) => {
         <div className="h-full border-2 border-gray-800 rounded-lg overflow-hidden">
           <img
             className="lg:h-48 md:h-36 w-full object-cover object-center"
-            src={props.media}
-            alt={props.title}
+            src={props.media ? props.media : ""}
+            alt={props.title ? props.title : ""}
           />
           <div className="p-6">
             <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-              {props.author}
+              {props.author ? props.author : ""}
             </h2>
             <h1 className="title-font text-lg font-medium text-white mb-3">
-              {props.title}
+              {props.title ? props.title : ""}
             </h1>
             <p className="leading-relaxed mb-3">
-              {props.content.slice(0, 105)}
+              {props.content ? props.content.slice(0, 105) : ""}
             </p>
             <div className="flex items-center flex-wrap ">
               <Link
                 className="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0"
                 to={`/details/${props.id}`}
               >
-                Learn More
+                Read More
                 <svg
                   className="w-4 h-4 ml-2"
                   viewBox="0 0 24 24"

@@ -19,7 +19,7 @@ const Main = () => {
   const articlesdata = useSelector((state) => state.default.def);
   const querr = useSelector((state) => state.notf.value);
   const Pagedata = useSelector((state) => state.page.value);
-  const apikey = "L7L-gf34K5jk8SUF3uTLykk634GfWVeCUoJS_fSPhII";
+  let apiKEY = process.env.REACT_APP_NEWS_API
   const [value, setvalue] = useState("");
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const Main = () => {
         `https://api.newscatcherapi.com/v2/search?q=${querr}${data}&lang=en&sort_by=relevancy&countries=in&page=${Pagedata}&page_size=24`,
         {
           headers: {
-            "x-api-key": `${apikey}`,
+            "x-api-key": `${apiKEY}`,
           },
         }
       )
@@ -93,7 +93,6 @@ const Main = () => {
     // eslint-disable-next-line
   }, [data, Pagedata]);
 
-
   return (
     <>
       <LoadingBar height={2} color="#4F46E5" progress={progress} />
@@ -131,8 +130,7 @@ const Main = () => {
               className="container"
               style={{
                 display: "flex",
-
-                margin: "0 auto 0 auto",
+                 margin: "0 auto 0 auto",
               }}
             >
               <input
@@ -140,9 +138,9 @@ const Main = () => {
                 onChange={handelchange}
                 name="email"
                 value={value}
-                className="form-control mx-2"
+            
                 id="emailAddress"
-                className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="form-control mx-2 w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
               <button
                 onClick={handelclick}

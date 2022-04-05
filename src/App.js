@@ -5,7 +5,7 @@ import Main from "./components/Main";
 import Contact from "./components/Contact";
 import Fullcontent from "./components/Fullcontent";
 import Footer from "./components/Footer";
-const apikey=process.env.REACT_APP_API_KEY
+
 function App() {
  
 
@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Switch>
      
-      <Route exact path="/" component={Main} apikey={apikey}/>
+      <Route exact path="/" component={Main} />
         <Route exact path="/contact" component={Contact}/>
         <Route exact path="/details/:id" component={Fullcontent}/>
          
